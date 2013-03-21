@@ -111,6 +111,8 @@ module OmniAuth
           self.error = error
           self.error_reason = error_reason
           self.error_uri = error_uri
+          pp "CallbackError handler:"
+          pp self
         end
       end
     end
