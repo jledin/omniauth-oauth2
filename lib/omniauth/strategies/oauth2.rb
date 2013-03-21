@@ -65,7 +65,7 @@ module OmniAuth
       end
 
       def callback_phase
-        Rails.logger.info request.to_yaml_style
+        p request.to_yaml_style
         if request.params['error'] || request.params['error_reason']
           raise CallbackError.new(request.params['error'], request.params['error_description'] || request.params['error_reason'], request.params['error_uri'])
         end
