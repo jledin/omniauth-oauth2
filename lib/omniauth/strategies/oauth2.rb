@@ -4,6 +4,7 @@ require 'oauth2'
 require 'omniauth'
 require 'timeout'
 require 'securerandom'
+require 'pp'
 
 module OmniAuth
   module Strategies
