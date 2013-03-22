@@ -68,9 +68,11 @@ module OmniAuth
       def callback_phase
         pp request
         if request.params['error'] || request.params['error_reason']
+          pp "Path 1:"
           raise CallbackError.new(request.params['error'], request.params['error_description'] || request.params['error_reason'], request.params['error_uri'])
         end
         if !options.provider_ignores_state && (request.params['state'].to_s.empty? || request.params['state'] != session.delete('omniauth.state'))
+          pp "Path 2:"
           raise CallbackError.new(nil, :csrf_detected)
         end
 
