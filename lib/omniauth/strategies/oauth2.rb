@@ -58,6 +58,7 @@ module OmniAuth
           @env['rack.session'] ||= {}
         end
         session['omniauth.state'] = params[:state]
+        pp "params[:state]: " + params[:state].to_s
         params
       end
 
