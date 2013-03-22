@@ -59,6 +59,8 @@ module OmniAuth
         end
         session['omniauth.state'] = params[:state]
         pp "params[:state]: " + params[:state].to_s
+        pp "1) session: "
+        pp session
         params
       end
 
@@ -67,6 +69,8 @@ module OmniAuth
       end
 
       def callback_phase
+        pp "2) session: "
+        pp session
         if request.params['error'] || request.params['error_reason']
           raise CallbackError.new(request.params['error'], request.params['error_description'] || request.params['error_reason'], request.params['error_uri'])
         end
