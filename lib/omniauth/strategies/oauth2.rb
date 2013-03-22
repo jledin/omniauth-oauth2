@@ -72,9 +72,9 @@ module OmniAuth
         omniauth_state = session.delete('omniauth.state')
         if !options.provider_ignores_state && (request.params['state'].to_s.empty? || request.params['state'] != omniauth_state)
           pp "ZZZ"
-          pp options.provider_ignores_state
-          pp request.params['state'].to_s
-          pp omniauth_state
+          pp "options.provider_ignores_state: " + options.provider_ignores_state.to_s
+          pp "request.params['state']: " + request.params['state'].to_s
+          pp "omniauth_state: " + omniauth_state.to_s
           pp "ZZZ"
           raise CallbackError.new(nil, :csrf_detected)
         end
